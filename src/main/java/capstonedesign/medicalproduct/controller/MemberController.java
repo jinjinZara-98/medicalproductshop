@@ -181,44 +181,44 @@ public class MemberController {
         //경로에 포함되어있는 숫자로 어떤 값이 수정되었는지 확인해 그 값 변경
         switch (modifyInfo) {
             case 1: {
-                memberService.nameUpdate(member.getId(), memberDetailForm.getName());
+                memberService.updateName(member.getId(), memberDetailForm.getName());
                 break;
             }
             case 2: {
-                memberService.phoneNumberUpdate(member.getId(), memberDetailForm.getPhoneNumber());
+                memberService.updatePhoneNumber(member.getId(), memberDetailForm.getPhoneNumber());
                 break;
             }
             case 3: {
-                memberService.addressUpdate(member.getId(), memberDetailForm.getAddress());
-                memberService.addressDetailUpdate(member.getId(), memberDetailForm.getAddressDetail());
+                memberService.updateAddress(member.getId(), memberDetailForm.getAddress());
+                memberService.updateAddressDetail(member.getId(), memberDetailForm.getAddressDetail());
                 break;
             }
             case 4: {
-                memberService.emailUpdate(member.getId(), memberDetailForm.getEmail());
+                memberService.updateEmail(member.getId(), memberDetailForm.getEmail());
                 break;
             }
             case 5: {
-                memberService.accountHostUpdate(member.getId(), memberDetailForm.getAccountHost());
+                memberService.updateAccountHost(member.getId(), memberDetailForm.getAccountHost());
                 break;
             }
             case 6: {
-                memberService.bankNameUpdate(member.getId(), memberDetailForm.getBankName());
+                memberService.updateName(member.getId(), memberDetailForm.getBankName());
                 break;
             }
             case 7: {
-                memberService.accountNumberUpdate(member.getId(), memberDetailForm.getAccountNumber());
+                memberService.updateAccountNumber(member.getId(), memberDetailForm.getAccountNumber());
                 break;
             }
             case 8: {
-                memberService.hospitalNameUpdate(member.getId(), memberDetailForm.getHospitalName());
+                memberService.updateHospitalName(member.getId(), memberDetailForm.getHospitalName());
                 break;
             }
             case 9: {
-                memberService.businessRegisterNumberUpdate(member.getId(), memberDetailForm.getBusinessRegisterNumber());
+                memberService.updateBusinessRegisterNumber(member.getId(), memberDetailForm.getBusinessRegisterNumber());
                 break;
             }
             case 10: {
-                memberService.doctorLicenseNumberUpdate(member.getId(), memberDetailForm.getDoctorLicenseNumber());
+                memberService.updateDoctorLicenseNumber(member.getId(), memberDetailForm.getDoctorLicenseNumber());
                 break;
             }
         }
@@ -266,7 +266,7 @@ public class MemberController {
         }
 
         //에러 없다면, 입력한 새로운 비밀번호 회원의 비밀번호에 넣기
-        memberService.passwordUpdate(member.getId(), passwordUpdateDto.getNewPassword());
+        memberService.updatePassword(member.getId(), passwordUpdateDto.getNewPassword());
 
         return "redirect:/";
     }

@@ -56,8 +56,9 @@
                     <td>
 <!--                        <img th:src="|/images/{imageFile} (imageFile = ${review.storeFileName})|"  width="75" height="75"/>-->
                         <a th:href="|/attach/${review.reviewId}|">
-                            <img th:if="${review.storeFileName}" th:src="|/images/${review.storeFileName}|"
-                                 width="75" height="75"/>
+<!--                            <img th:if="${review.storeFileName}" th:src="|/images/${review.storeFileName}|"-->
+<!--                                 width="75" height="75"/>-->
+                            <img th:if="${review.storeFileName}" th:src = "*{review.storeFileName}" width="75" height="75"/>
                         </a>
                     </td>
 

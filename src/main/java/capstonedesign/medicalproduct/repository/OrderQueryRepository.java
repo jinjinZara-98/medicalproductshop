@@ -59,7 +59,7 @@ public class OrderQueryRepository {
                                     .join(oi.order, o)
                                     .join(oi.item, i)
                                     .where(builder)
-                                     .fetch();
+                                    .fetch();
 
         return result;
     }
