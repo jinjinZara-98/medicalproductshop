@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/membersHeader :: header"/>
+<body class="text-center">
+
+<main class="form-signin w-100 m-auto">
+
+    <div style="margin-bottom:150px;" class="row">
+        <h1 class="h2 mb-3 fw-normal">아이디 찾기 결과</h1>
+    </div>
+
+    <h5 th:if="${result != null}">회원님의 이름과 전화번호로</h5>
+    <h5 th:if="${result != null}">가입된 아이디가 있습니다</h5>
+
+    <h5 th:unless="${result != null}">회원님의 이름과 전화번호로</h5>
+    <h5 th:unless="${result != null}">가입된 아이디가 없습니다</h5>
+
+    <div style="margin:20px;" class="form-floating">
+        <label for="loginId"></label>
+        <input th:if="${result != null}" type="text" class="form-control" id="loginId" th:value="${result}" readonly>
+    </div>
+
+    <a class="w-100 btn btn-lg btn-primary" th:href="@{/login}">로그인</a>
+
+    <div th:replace="fragments/footer :: footer" />
+</main>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</html>

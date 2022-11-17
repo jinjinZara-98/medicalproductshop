@@ -1,0 +1,183 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: header"/>
+
+<body>
+    <div class="container">
+
+        <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+
+        <div>
+
+            <header class="blog-header py-3">
+                <div class="row flex-nowrap justify-content-between align-items-center">
+
+                    <div class="col-4">
+                    </div>
+
+                    <div class="col-4 text-center">
+<!--                CartController에서 넘어온 cartSearch객체 th:action은 값을 안주면 현재 페이지를 요청한 경로 다시 요청-->
+
+                        <form th:object="${cartSearch}" class="d-flex">
+
+                            <input th:field="*{itemName}" class="form-control me-2" type="search"
+                                   placeholder="상품명" aria-label="Search" autocomplete="off">
+
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+
+                </div>
+            </header>
+
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th>장바구니 번호</th>
+
+                        <th><!-- 체크박스 전체 여부 -->
+                            <div class="all_check_input_div">
+                                <input type="checkbox" class="all_check_input input_size_20" checked="checked">
+                                <span class="all_check_span">전체선택</span>
+                            </div>
+                        </th>
+
+                        <th>상품명</th>
+                        <th>상품사진</th>
+                        <th>상품 가격</th>
+                        <th>상품 수량</th>
+                        <th>주문관리</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <script>
+                          var i = 0;
+                    </script>
+
+                    <tr th:each="item : ${cartItems}">
+
+                        <td>
+                            <script type="text/javascript">
+                                document.write(++i);
+                            </script>
+                        </td>
+
+                        <!-- 히든 필드 추가, 체크를 안해도 히든 필드는 무조건 넘어가게
+                                 FormItemController : item.open=true //체크 박스를 선택하는 경우
+                                 FormItemController : item.open=false //체크 박스를 선택하지 않는 경우
+                                 체크 박스를 체크하면 스프링 MVC가 open 에 값이 있는 것을 확인하고 사용한다. 이때 _open 은 무시
+                                 체크 박스를 체크하지 않으면 스프링 MVC가 _open 만 있는 것을 확인하고, open 의 값이 체크되지 않았다고 인식한다.
+                                 이 경우 서버에서 Boolean 타입을 찍어보면 결과가 null 이 아니라 false 인 것을 확인할 수 있다.
+                                 log.info("item.open={}", item.getOpen());, th:object없으면 *이 아니라 $로-->
+                        <!-- id="open" name="open" th:field="${item.open}"-->
+                        <td class="cart_info_td">
+                            <input type="hidden" class="individual_CartId" th:value="${item.id}">
+                            <input type="hidden" class="individual_ItemId" th:value="${item.itemId}">
+                            <input type="hidden" class="individual_Name" th:value="${item.name}">
+                            <input type="hidden" class="individual_ImageSrc" th:value="${item.imageSrc}">
+                            <input type="hidden" class="individual_Quantity" th:value="${item.quantity}">
+                            <input type="hidden" class="individual_Price" th:value="${item.price}">
+                            <input type="hidden" class="individual_TotalPrice" th:value="${item.price} * ${item.quantity}">
+
+                            <input type="checkbox" class="individual_cart_checkbox input_size_20" checked="checked" >
+                        </td>
+
+                        <td th:text="${item.name}">상품 이름</td>
+
+                        <td> <img th:src = "*{item.imageSrc}" width="75" height="75"> </td>
+
+                        <td th:text="${item.price} * ${item.quantity}">가격</td>
+
+                        <!--                    <td th:text="${item.quantity}"></td>-->
+                        <td>
+                            <div class="table_text_align_center quantity_div">
+                                <button type="button" th:onclick="|location.href='@{cartItem/{id}/QuantityPlus (id=${item.id})}'|">+</button>
+
+                                <h6 th:text="${item.quantity}">수량</h6>
+
+                                <button type="button" th:onclick="|location.href='@{cartItem/{id}/QuantityMinus (id=${item.id})}'|">-</button>
+                            </div>
+                        </td>
+
+                        <td>
+                            <!--상태가 put이면 cancel버튼을 노출되게 기능을 만들음, 장바구니에 담긴 상태여야지 취소가 가능하니
+                                버튼 누르면 장바구니 아이디 파라미터로 담아 javascript:cancel메서드 실행-->
+                            <a th:if="${item.status.name() == 'PUT'}" href="#"
+                               th:href="'javascript:cancel('+${item.id}+')'"
+                               class="btn btn-danger">삭제하기</a>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+    <!--        <div class="container">-->
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4 text-center">
+                    <table class="table table-striped">
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <strong>총 상품 종류</strong>
+                                </td>
+                                <td>
+                                    <span class="totalKind_span">0</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>총 상품 개수</strong>
+                                </td>
+                                <td>
+                                    <span class="totalCount_span">0</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>결제 금액</strong>
+
+                                </td>
+                                <td>
+                                    <span class="totalPrice_span">10000</span> 원
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="py-5 text-center">
+<!--                    <button type="button" ><a class="order_btn">결제하기</a></button>-->
+<!--                    버튼 누르면 자바스크립트 영역에서 order() 실행-->
+                    <a th:href="'javascript:order()'"
+                       class="btn btn-dark" a>주문하기</a>
+                </div>
+            </div>
+
+            <!-- 주문 form th:action="/cartItem/order"-->
+            <form action="/order/cartItem" method="POST" class="order_form">
+<!--                이런 형식으로-->
+<!--                <input type="hidden" name="orders[0].CartId" value="${goodsInfo.bookId}">-->
+<!--                <input type="hidden" name="orders[0].Count" value="">-->
+            </form>
+
+        </div>
+
+        <div th:replace="fragments/footer :: footer" />
+    </div> <!--container div -->
+</body>
+
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="/js/app/cart.js"></script>
+</html>
