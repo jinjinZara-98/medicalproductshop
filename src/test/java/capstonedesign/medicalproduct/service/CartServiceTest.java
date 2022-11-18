@@ -7,6 +7,7 @@ import capstonedesign.medicalproduct.dto.MemberRegisterForm;
 import capstonedesign.medicalproduct.repository.CartRepository;
 import capstonedesign.medicalproduct.repository.MemberRepository;
 import org.assertj.core.api.Assertions;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -41,7 +42,7 @@ class CartServiceTest {
     Member joinedMember;
 
     //장바구니에 상품 담는 회원 생성
-    @BeforeEach
+    @BeforeClass
     public void joinMemberAndPutItemToCart() {
         MemberRegisterForm member = new MemberRegisterForm();
 

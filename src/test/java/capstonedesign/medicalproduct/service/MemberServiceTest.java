@@ -4,6 +4,7 @@ import capstonedesign.medicalproduct.domain.entity.Member;
 import capstonedesign.medicalproduct.dto.LoginForm;
 import capstonedesign.medicalproduct.dto.MemberRegisterForm;
 import capstonedesign.medicalproduct.repository.MemberRepository;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -40,7 +41,7 @@ class MemberServiceTest {
     Member joinedMember;
 
     //테스트 전 테스트할 회원 먼저 생성
-//    @BeforeEach
+    @BeforeClass
     public void joinMember() {
         MemberRegisterForm member = new MemberRegisterForm();
 

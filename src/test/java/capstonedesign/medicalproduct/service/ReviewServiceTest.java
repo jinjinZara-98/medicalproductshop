@@ -5,6 +5,7 @@ import capstonedesign.medicalproduct.domain.entity.Review;
 import capstonedesign.medicalproduct.dto.MemberRegisterForm;
 import capstonedesign.medicalproduct.dto.order.OrderItemDto;
 import capstonedesign.medicalproduct.repository.ReviewRepository;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -39,7 +40,7 @@ class ReviewServiceTest {
     Member joinedMember; long orderId;
 
     //장바구니에 상품 담는 회원 생성
-    @BeforeEach
+    @BeforeClass
     public void joinMemberAncCreateOrder() {
         MemberRegisterForm member = new MemberRegisterForm();
 

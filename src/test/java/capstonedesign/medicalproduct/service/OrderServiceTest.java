@@ -9,6 +9,7 @@ import capstonedesign.medicalproduct.dto.MemberRegisterForm;
 import capstonedesign.medicalproduct.dto.order.OrderItemDto;
 import capstonedesign.medicalproduct.dto.ordered.OrderedItemDto;
 import capstonedesign.medicalproduct.repository.OrderRepository;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -43,7 +44,7 @@ class OrderServiceTest {
 
     Member joinedMember; long orderId;
 
-    @BeforeEach
+    @BeforeClass
     public void joinMemberAncCreateOrder() {
         MemberRegisterForm member = new MemberRegisterForm();
 
