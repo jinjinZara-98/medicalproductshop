@@ -42,7 +42,7 @@ class CartServiceTest {
     Member joinedMember;
 
     //장바구니에 상품 담는 회원 생성
-    @BeforeClass
+    @BeforeEach
     public void joinMemberAndPutItemToCart() {
         MemberRegisterForm member = new MemberRegisterForm();
 
