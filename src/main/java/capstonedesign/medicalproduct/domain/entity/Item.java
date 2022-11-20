@@ -1,9 +1,6 @@
 package capstonedesign.medicalproduct.domain.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -50,4 +47,27 @@ public class Item {
     //리뷰
     @OneToMany(mappedBy = "item")
     private List<Review> reviews = new ArrayList<>();
+
+    @Builder
+    public Item(String name, String imageSrc, String category, int price, String introduction, int rate) {
+        this.name = name;
+        this.imageSrc = imageSrc;
+        this.category = category;
+        this.price = price;
+        this.introduction = introduction;
+        this.rate = rate;
+    }
+
+    public static Item createItem(String name, String imageSrc, String category, int price, String introduction, int rate) {
+
+        Item item = Item.builder()
+                .name(name)
+                .imageSrc(imageSrc)
+                .category(category)
+                .price(price)
+                .introduction(introduction)
+                .rate(rate).build();
+
+        return item;
+    }
 }

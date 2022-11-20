@@ -85,7 +85,9 @@ public class Order {
     //==연관관계 메서드==//
     public void setMember(Member member) {
         this.member = member;
-        member.getOrders().add(this);
+        if(member.getOrders() != null) {
+            member.getOrders().add(this);
+        }
     }
 
     //파라미터로 들어온 주문된 상품을 주문한 상품 리스트에 추가하고 어떤 주문에 속해있는지 세팅

@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
+import javax.persistence.Column;
+import javax.persistence.Lob;
+
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -20,6 +23,13 @@ public class ItemService {
     private final ItemRepository itemRepository;
 
     private final ItemQueryRepository itemQueryRepository;
+
+    //상품 넣기
+    @Transactional
+    public void putItem(String category, String imageSrc, String introduction,String name, int price, int rate){
+       Item item = Item.createItem(name, imageSrc, category, price, introduction, rate);
+       itemRepository.save(item);
+    }
 
     public Page<ItemDto> findNameSearch(ItemSearch itemSearch, int page) {
 

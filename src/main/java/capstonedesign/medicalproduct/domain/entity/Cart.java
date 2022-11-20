@@ -38,7 +38,9 @@ public class Cart {
 
     public void setMember(Member member) {
         this.member = member;
-        member.getCarts().add(this);
+        if(member.getCarts() != null) {
+            member.getCarts().add(this);
+        }
     }
 
     public void setItem(Item item) {
