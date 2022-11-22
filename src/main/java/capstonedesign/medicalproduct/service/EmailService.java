@@ -2,15 +2,16 @@ package capstonedesign.medicalproduct.service;
 
 import capstonedesign.medicalproduct.domain.entity.Member;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class EmailService {
 
-    private JavaMailSender emailSender;
+    private final JavaMailSender emailSender;
 
     public void sendPassword(Member member) {
         SimpleMailMessage message = new SimpleMailMessage();
