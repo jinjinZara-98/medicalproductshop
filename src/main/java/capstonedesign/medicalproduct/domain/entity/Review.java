@@ -19,7 +19,7 @@ import java.util.List;
 @NamedEntityGraph(name = "Review.all", attributeNodes = { @NamedAttributeNode("member"), @NamedAttributeNode("item") } )
 public class Review {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "review_id")
     private long id;
 

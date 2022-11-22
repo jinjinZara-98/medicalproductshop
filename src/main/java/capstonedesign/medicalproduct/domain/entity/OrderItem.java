@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 public class OrderItem {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ordereditem_id")
     private long id;
 

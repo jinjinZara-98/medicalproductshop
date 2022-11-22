@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Entity
 public class Cart {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cart_id")
     private long id;
 

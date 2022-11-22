@@ -13,8 +13,7 @@ import java.util.List;
 @Entity
 public class Member {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     //member테이블의 id열과 매칭
     @Column(name = "member_id")
     private Long id;
