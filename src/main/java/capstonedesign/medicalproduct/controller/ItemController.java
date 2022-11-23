@@ -8,6 +8,7 @@ import capstonedesign.medicalproduct.domain.entity.Review;
 import capstonedesign.medicalproduct.dto.ItemDetailDto;
 import capstonedesign.medicalproduct.dto.ItemDto;
 import capstonedesign.medicalproduct.dto.ReviewDto;
+import capstonedesign.medicalproduct.service.AwsS3Service;
 import capstonedesign.medicalproduct.service.ItemService;
 import capstonedesign.medicalproduct.service.ReviewService;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -27,6 +29,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ItemController {
 
+    private final AwsS3Service awsS3Service;
     private final ItemService itemService;
     private final ReviewService reviewService;
 
@@ -48,19 +51,25 @@ public class ItemController {
 
         List<ReviewDto> reviewList = reviewService.oneItemReviews(itemId);
 
+        List<ReviewDto> newReviewList = new ArrayList<>();
+        for (ReviewDto reviewDto : reviewList) {
+            reviewDto.setStoreFileName(awsS3Service.getThumbnailPath(reviewDto.getStoreFileName()));
+            newReviewList.add(reviewDto);
+        }
+
         //로그인하지 않았다면
         if (loginMember == null) {
 
             //값 세팅한 itemDetailDto를 model에 담아줌
             model.addAttribute("itemDetailDto", itemDetailDto);
-            model.addAttribute("reviewList", reviewList);
+            model.addAttribute("reviewList", newReviewList);
 
             return "item/itemDetail";
         }
 
         //로그인 했다면
         model.addAttribute("itemDetailDto", itemDetailDto);
-        model.addAttribute("reviewList", reviewList);
+        model.addAttribute("reviewList", newReviewList);
 
         return "item/loginItemDetail";
     }
