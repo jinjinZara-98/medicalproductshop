@@ -160,7 +160,7 @@
                                 </td>
                                 <td>
                                     <a th:href="|/attach/${review.reviewId}|">
-                                        <img th:if="${review.storeFileName}" th:src="|/images/${review.storeFileName}|"
+                                        <img th:if="${review.storeFileName}" th:src = "*{review.storeFileName}"
                                              width="75" height="75"/>
                                     </a>
                                 </td>
