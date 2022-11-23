@@ -22,14 +22,14 @@ public class LoginContorller {
     private final MemberService memberService;
 
     //로그인 화면으로 들어가는
-    @GetMapping("/login")
+    @GetMapping("login")
     public String loginForm(@ModelAttribute("loginForm") LoginForm form){
         log.info("login controller");
 
         return "login/loginForm";
     }
 
-    @PostMapping("/login")
+    @PostMapping("login")
     public String login(@Valid @ModelAttribute LoginForm form, BindingResult bindingResult,
                         //비회원이 페이지에 접근할때 회원인지 체크하고, 로그인 성공해 회원이면 리다이렉트해서 접근했던 페이지로 다시 넘어가게
                         //defaultValue는 다시 되돌아갈 redirectURL앞에 붙쳐줌, 기본값
@@ -69,7 +69,7 @@ public class LoginContorller {
 
     //로그아웃
     //HttpSession 적용, 로그아웃해도 f12눌러보면 쿠키는 남아있음
-    @PostMapping("/logout")
+    @PostMapping("logout")
     public String logout(HttpServletRequest request) {
 
         //세션을 없애는게 목적이므로 false, false면 가져온 세션이 존재하지 않을때 새로 생성하지 않음

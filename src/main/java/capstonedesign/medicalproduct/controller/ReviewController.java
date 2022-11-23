@@ -112,7 +112,7 @@ public class ReviewController {
 
     //items/{id} 로 업로드한 파일 조회, 화면에서 첨부파일 링크 클릭하면 파일 다운로드 되도록
     //@ResponseBody 안쓰고 ResponseEntity<Resource> 이거 씀
-    @GetMapping("/attach/{reviewId}")
+    @GetMapping("attach/{reviewId}")
     public ResponseEntity<byte[]> downloadAttach(@PathVariable Long reviewId) throws IOException {
         //아이템을 접근할 수 있는 사용자만 파일을 다운받게 하는
         Review review = reviewRepository.findById(reviewId).get();
@@ -127,7 +127,7 @@ public class ReviewController {
     }
 
     //후기 리스트에서 후기 중 삭제 버튼을 눌렀을때
-    @PostMapping("/review/{id}/cancel")
+    @PostMapping("review/{id}/cancel")
     public String reviewCancel(@PathVariable("id") long reviewId) {
 
         //s3 스토리지에서 이미지 파일 삭제
