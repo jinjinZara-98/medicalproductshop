@@ -8,4 +8,4 @@
 
 사용기술 Java, Spring Framework, JPA, QueryDsl, MySql, JavaScript, Ajax
 
-<imge src="C:\Users\aha101\Desktop\졸업작품 관련">
+<imge src="C:\Users\aha101\Desktop\졸업작품 관련\졸작 사진.png">
