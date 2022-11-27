@@ -6,6 +6,8 @@
 
 로그인, 회원가입, 마이페이지, 상품상세, 장바구니, 주문, 주문 내역 리스트, 후기 작성, 후기 내역 리스트 등 일반 쇼핑몰에 있는 기능들을 대부분 구현.
 
+AWS 를 이용해서 배포까지 완료했었음.
+
 사용기술 Java, Spring Framework, JPA, QueryDsl, MySql, JavaScript, Ajax
 
 <br/>
