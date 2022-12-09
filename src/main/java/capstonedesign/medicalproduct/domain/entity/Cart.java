@@ -36,14 +36,14 @@ public class Cart {
     @JoinColumn(name = "item_id")
     private Item item;
 
-    public void setMember(Member member) {
+    public void updateMember(Member member) {
         this.member = member;
         if(member.getCarts() != null) {
             member.getCarts().add(this);
         }
     }
 
-    public void setItem(Item item) {
+    public void updateItem(Item item) {
         this.item = item;
         item.getCarts().add(this);
     }
@@ -60,7 +60,7 @@ public class Cart {
 
         Cart cart = new Cart();
 
-        cart.setMember(member); cart.setItem(item); cart.enterQuantity(quantity); cart.addProduct(CartStatus.PUT);
+        cart.updateMember(member); cart.updateItem(item); cart.enterQuantity(quantity); cart.addProduct(CartStatus.PUT);
 
         return cart;
     }

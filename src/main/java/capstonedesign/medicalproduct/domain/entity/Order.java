@@ -77,12 +77,13 @@ public class Order {
         this.status = status;
     }
 
+    //주문 취소
     public void cancelOrder() {
         this.status = OrderStatus.CANCEL;
     }
 
     //==연관관계 메서드==//
-    public void setMember(Member member) {
+    public void updateMember(Member member) {
         this.member = member;
         if(member.getOrders() != null) {
             member.getOrders().add(this);
@@ -116,7 +117,7 @@ public class Order {
                 .orderDate(LocalDateTime.now())
                 .status(OrderStatus.ORDER).build();
 
-        order.setMember(member);
+        order.updateMember(member);
 
         //여러 개 받은 주문상품을 하나씩 꺼내 Order 객체에 추가
         for (OrderItem orderItem : orderItems) {
