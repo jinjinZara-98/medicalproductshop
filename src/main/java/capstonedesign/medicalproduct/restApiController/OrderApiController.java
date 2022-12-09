@@ -1,11 +1,7 @@
 package capstonedesign.medicalproduct.restApiController;
 
-import capstonedesign.medicalproduct.Login.SessionConst;
-import capstonedesign.medicalproduct.domain.OrderSearch;
 import capstonedesign.medicalproduct.domain.OrderStatus;
-import capstonedesign.medicalproduct.domain.entity.Member;
 import capstonedesign.medicalproduct.domain.entity.Order;
-import capstonedesign.medicalproduct.domain.entity.OrderItem;
 import capstonedesign.medicalproduct.dto.ordered.OrderedItemDto;
 import capstonedesign.medicalproduct.repository.OrderRepository;
 import capstonedesign.medicalproduct.service.OrderService;
@@ -13,15 +9,11 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.persistence.*;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
+
 import static java.util.stream.Collectors.toList;
 
 @RestController
@@ -56,16 +48,13 @@ public class OrderApiController {
     }
 
     /** 특정 주문에 해당하는 주문 상품 조회 */
-//    @GetMapping("/api/orders/orderItems/members/{memberId}")
-//    public OrderAPIDto orderItemsOrderedByMember(@PathVariable("memberId") long memberId,
-//                                                 @RequestBody OrderSearch orderSearch){
-//
-//        List<OrderedItemDto> order = orderService.orderItems(memberId, orderSearch);
-//
-//        OrderAPIDto orderAPIDto = new OrderAPIDto(order);
-//
-//        return orderAPIDto;
-//    }
+    @GetMapping("/api/orders/{orderId}/orderItems")
+    public List<OrderedItemDto> orderItemsOrderedByMember(@PathVariable("orderId") long orderId){
+
+        List<OrderedItemDto> orderItems = orderService.orderNumberOrderItems(orderId);
+
+        return orderItems;
+    }
 
     @Data
     static class OrderAPIDto {
@@ -80,7 +69,6 @@ public class OrderApiController {
         private String orderAccountHost;
         private String orderBankName;
         private String orderAccountNumber;
-//        private List<OrderItem> orderItems = new ArrayList<>();
         private LocalDateTime orderDate;
         private OrderStatus status;
 

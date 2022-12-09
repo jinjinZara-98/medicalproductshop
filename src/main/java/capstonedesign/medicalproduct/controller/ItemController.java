@@ -52,6 +52,7 @@ public class ItemController {
         List<ReviewDto> reviewList = reviewService.oneItemReviews(itemId);
 
         List<ReviewDto> newReviewList = new ArrayList<>();
+
         for (ReviewDto reviewDto : reviewList) {
             reviewDto.setStoreFileName(awsS3Service.getThumbnailPath(reviewDto.getStoreFileName()));
             newReviewList.add(reviewDto);

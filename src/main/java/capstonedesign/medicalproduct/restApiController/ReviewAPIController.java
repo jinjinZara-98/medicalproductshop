@@ -72,7 +72,7 @@ public class ReviewAPIController {
         return result;
     }
 
-    /** 특정 후기 식제*/
+    /** 특정 후기 식제 */
     @DeleteMapping("/api/reviews/{id}")
     public String deleteReview(@PathVariable("id") long reviewId) {
 
