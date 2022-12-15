@@ -433,8 +433,7 @@
  <br/>     
     
  ### 2. DB 설계
-![image]()
-
+ 
 ![image](https://user-images.githubusercontent.com/95284639/207602384-6c7d86cd-3c79-4200-ae73-3862f42ab180.png)
 <img src="https://user-images.githubusercontent.com/95284639/207638228-e170cce9-f0ec-4b1a-a42b-039e1f7b3067.png"  width="400" height="400"/>
 <img src="https://user-images.githubusercontent.com/95284639/207608463-c074dfcd-f60f-46b2-9b12-205ba3fe259d.png"  width="400" height="400"/>
