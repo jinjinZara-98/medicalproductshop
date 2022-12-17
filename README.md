@@ -38,7 +38,7 @@
 ### 3. 사용 기술
 
 #### 3-1 백엔드
- Java, Spring Framework, JPA, QueryDsl, MySql, Thymeleaf, JavaScript, Ajax
+ Java, Spring Framework, JPA, QueryDsl, MySql
 ##### 주요 프레임워크 / 라이브러리
 - Java 11
 - SpringBoot 2.6.4
