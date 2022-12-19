@@ -101,7 +101,6 @@ public class OrderController {
 
         //상품상세는 장바구니에 있다가 주문으로 가는게 아니므로 cartId없음
         //상품상세니까 하나의 상품 정보만 들어있음, 0번째 OrderItemDto객체 갖고옴
-        //그래도 주문 화면에서는 상품을 반복문으로 돌리니까 리스트로?
         List<OrderItemDto> orderItemDto = orderDto.getOrders();
 
         //모델에 주문하는 회원정보, 하나의 상품 정보 담기

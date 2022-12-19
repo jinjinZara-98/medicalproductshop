@@ -99,8 +99,8 @@ public class ItemController {
 
             return "home";
         }
-        //세션에 회원 데이터가 있으면 loginhome
 
+        //세션에 회원 데이터가 있으면 loginhome
         model.addAttribute("items",  listPage.getContent());
         model.addAttribute("totalPage", totalPage);
 

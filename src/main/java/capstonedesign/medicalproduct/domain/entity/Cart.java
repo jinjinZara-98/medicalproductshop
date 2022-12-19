@@ -11,11 +11,12 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @NamedQuery(
-        name="Member.findMemberId",
+        name="Cart.findMemberId",
         query="select c from Cart c where c.member.id = :memberId")
 @Entity
 public class Cart {
 
+    //Maria DB 전략
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cart_id")
     private long id;

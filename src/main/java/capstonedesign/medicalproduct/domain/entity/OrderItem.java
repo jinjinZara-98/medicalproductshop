@@ -7,7 +7,6 @@ import javax.persistence.*;
 //주문 상품 엔티티
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@NamedEntityGraph(name = "OrderItem.all", attributeNodes = { @NamedAttributeNode("order"), @NamedAttributeNode("item") } )
 @Entity
 public class OrderItem {
 
@@ -58,7 +57,6 @@ public class OrderItem {
         return orderItem;
     }
 
-    //==조회 로직==//
     // 주문상품 전체 가격 조회
     public int getTotalPrice() {
 

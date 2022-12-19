@@ -36,13 +36,9 @@
 
         <div>
             <label for="loginId">ID</label>
-<!--            <button type="button" class="btn btn-light text-dark me-2"-->
-<!--                onclick="fn_idCheck()" value="N">중복확인</button></p>-->
 
             <input type="text" id="loginId" th:field="*{loginId}" class="form-control" th:errorclass="field-error" >
 
-            <!--id입력칸 에러 뜨면 입력칸 밑에 빨간 글씨 에러 보여주기,
-             따로 정의해주지 않아서 기본값, 폼 필드 검증 어노테이션에서 정의한 값-->
             <div class="field-error" th:errors="*{loginId}" />
         </div>
 
@@ -63,21 +59,18 @@
         <div>
             <label for="phoneNumber">전화번호</label>
             <input type="text" id="phoneNumber" th:field="*{phoneNumber}" class="form-control" th:errorclass="field-error">
-            <!--id입력칸 에러 뜨면 입력칸 밑에 빨간 글씨 에러 보여주기, 따로 정의해주지 않아서 기본값-->
             <div class="field-error" th:errors="*{phoneNumber}" />
         </div>
 
         <div>
             <label for="address">주소</label>
             <input type="text" id="address" th:field="*{address}" class="form-control" th:errorclass="field-error">
-            <!--id입력칸 에러 뜨면 입력칸 밑에 빨간 글씨 에러 보여주기, 따로 정의해주지 않아서 기본값-->
             <div class="field-error" th:errors="*{address}" />
         </div>
 
         <div>
             <label for="addressDetail">상세주소</label>
             <input type="text" id="addressDetail" th:field="*{addressDetail}" class="form-control" th:errorclass="field-error">
-            <!--id입력칸 에러 뜨면 입력칸 밑에 빨간 글씨 에러 보여주기, 따로 정의해주지 않아서 기본값-->
             <div class="field-error" th:errors="*{addressDetail}" />
         </div>
 
@@ -99,49 +92,42 @@
         <div>
             <label for="email">이메일</label>
             <input type="text" id="email" th:field="*{email}" class="form-control" th:errorclass="field-error">
-            <!--id입력칸 에러 뜨면 입력칸 밑에 빨간 글씨 에러 보여주기, 따로 정의해주지 않아서 기본값-->
             <div class="field-error" th:errors="*{email}" />
         </div>
 
         <div>
             <label for="accountHost">예금주</label>
             <input type="text" id="accountHost" th:field="*{accountHost}" class="form-control" th:errorclass="field-error">
-            <!--id입력칸 에러 뜨면 입력칸 밑에 빨간 글씨 에러 보여주기, 따로 정의해주지 않아서 기본값-->
             <div class="field-error" th:errors="*{accountHost}" />
         </div>
 
         <div>
             <label for="bankName">은행명</label>
             <input type="text" id="bankName" th:field="*{bankName}" class="form-control" th:errorclass="field-error">
-            <!--id입력칸 에러 뜨면 입력칸 밑에 빨간 글씨 에러 보여주기, 따로 정의해주지 않아서 기본값-->
             <div class="field-error" th:errors="*{bankName}" />
         </div>
 
         <div>
             <label for="accountNumber">계좌번호</label>
             <input type="text" id="accountNumber" th:field="*{accountNumber}" class="form-control" th:errorclass="field-error">
-            <!--id입력칸 에러 뜨면 입력칸 밑에 빨간 글씨 에러 보여주기, 따로 정의해주지 않아서 기본값-->
             <div class="field-error" th:errors="*{accountNumber}" />
         </div>
 
         <div>
             <label for="HospitalName">병원/ 사업체명</label>
             <input type="text" id="HospitalName" th:field="*{HospitalName}" class="form-control" th:errorclass="field-error">
-            <!--id입력칸 에러 뜨면 입력칸 밑에 빨간 글씨 에러 보여주기, 따로 정의해주지 않아서 기본값-->
             <div class="field-error" th:errors="*{HospitalName}" />
         </div>
 
         <div>
             <label for="businessRegisterNumber">사업자등록번호</label>
             <input type="text" id="businessRegisterNumber" th:field="*{businessRegisterNumber}" class="form-control" th:errorclass="field-error">
-            <!--id입력칸 에러 뜨면 입력칸 밑에 빨간 글씨 에러 보여주기, 따로 정의해주지 않아서 기본값-->
             <div class="field-error" th:errors="*{businessRegisterNumber}" />
         </div>
 
         <div>
             <label for="doctorLicenseNumber">의사면허번호</label>
             <input type="text" id="doctorLicenseNumber" th:field="*{doctorLicenseNumber}" class="form-control" th:errorclass="field-error">
-            <!--id입력칸 에러 뜨면 입력칸 밑에 빨간 글씨 에러 보여주기, 따로 정의해주지 않아서 기본값-->
             <div class="field-error" th:errors="*{doctorLicenseNumber}" />
         </div>
         <hr class="my-4">

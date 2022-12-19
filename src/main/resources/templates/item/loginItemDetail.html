@@ -22,9 +22,6 @@
 
                     <div class="col-4 d-flex justify-content-end align-items-center">
 
-                        <!--        <button type="button" class="btn btn-light text-dark me-2"-->
-                        <!--                th:onclick="|location.href='@{/logout}'|">로그아웃</button>-->
-
                         <form th:action="@{/logout}" method="post">
                             <button class="btn btn-light text-dark me-2" th:onclick="|location.href='@{/logout}'|" type="submit">
                                 로그아웃
@@ -69,7 +66,6 @@
 
                 <form action="/cart/put" th:object="${itemDetailDto}" class="cart_form">
                     <div class="container">
-                        <!--                    하나의 행을 크게 만들어 -->
                         <div class="row">
 
                             <div class="product_pictures col-md-5">
@@ -83,8 +79,6 @@
                                 <input type="hidden" th:field="*{rate}">
 
                                 <h2 th:text="*{name}">상품이름</h2>
-
-                                <!--                            <h3 th:text="*{introduction}">상품소개</h3>-->
 
                                 <p></p>
 
@@ -129,7 +123,7 @@
                         </div>
 
                         <hr class="my-4">
-                        <!--                        상품 설명은 열을 벗어나-->
+                        <!-- 상품 설명은 열을 벗어나-->
                         <br/>
                         <h4 th:text="*{introduction}">상품 설명</h4>
                     </div>

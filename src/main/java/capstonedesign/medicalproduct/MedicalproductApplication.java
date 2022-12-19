@@ -16,15 +16,13 @@ import java.util.concurrent.ExecutorService;
 public class MedicalproductApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(MedicalproductApplication.class, args);
-
 	}
 
 	@Autowired
 	EntityManager em;
 
-	//JPAQueryFactory @Autowired로 자동 의존 주입 할때
+	//JPAQueryFactory @Autowired로 자동 의존 주입 할 때
 	//EntityManager의 객체를 파라미터로 넣어준 new JPAQueryFactory(em)를 넣어줌
 	@Bean
 	public JPAQueryFactory jpaQueryFactory() {

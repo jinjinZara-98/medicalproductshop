@@ -152,7 +152,8 @@ public class MemberController {
         memberDetail.setEmail(member.getEmail());memberDetail.setAccountHost(member.getAccountHost());
         memberDetail.setBankName(member.getBankName()); memberDetail.setAccountNumber(member.getAccountNumber());
 
-        memberDetail.setHospitalName(member.getHospitalName()); memberDetail.setBusinessRegisterNumber(member.getBusinessRegisterNumber());
+        memberDetail.setHospitalName(member.getHospitalName());
+        memberDetail.setBusinessRegisterNumber(member.getBusinessRegisterNumber());
         memberDetail.setDoctorLicenseNumber(member.getDoctorLicenseNumber());
 
         model.addAttribute("memberDetail", memberDetail);

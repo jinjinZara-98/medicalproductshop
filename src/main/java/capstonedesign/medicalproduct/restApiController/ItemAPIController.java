@@ -41,7 +41,7 @@ public class ItemAPIController {
     /**
      * 특정 상품 조회
      */
-    @GetMapping("/api/item/{itemId}")
+    @GetMapping("/api/items/{itemId}")
     public ItemAPIDto findItem(@PathVariable("itemId") long itemId) {
         Item item = itemRepository.getById(itemId);
         ItemAPIDto result = new ItemAPIDto(item);

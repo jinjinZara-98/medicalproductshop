@@ -162,7 +162,6 @@ public class CartController {
         cartService.cartItemDelete(cartId);
 
         //취소 상태를 담아 리다이렉트로 다시 주문리스트로 다시 가는
-        //html url이 아닌 컨트롤러 요청 url적어주자
         return "redirect:/cart/cart";
     }
 }

@@ -48,5 +48,4 @@ public class CartQueryRepository {
 
         return result;
     }
-
 }

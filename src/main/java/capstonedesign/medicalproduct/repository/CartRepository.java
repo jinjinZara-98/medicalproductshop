@@ -14,6 +14,6 @@ public interface CartRepository extends JpaRepository<Cart, Long> {
     List<Cart> fetchJoinCartFindAll();
 
     //NamedQuery 사용
-    @Query(name = "Member.findMemberId")
+    @Query(name = "Cart.findMemberId")
     List<Cart> memberIdNamedQueryCartFindAll(@Param("memberId") long memberId);
 }

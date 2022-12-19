@@ -49,7 +49,6 @@
 
                     <td th:text="${item.orderId}">주문 번호</td>
 
-                    <!--                    <td th:text="${item.quantity}"></td>-->
                     <td th:text="${item.quantity}">수량</td>
 
                     <td th:text="${item.price}">주문 가격</td>
@@ -65,8 +64,6 @@
 
         <div class="container">
             <div class="py-5 text-center">
-                <!--                    <button type="button" ><a class="order_btn">결제하기</a></button>-->
-                <!--                    버튼 누르면 자바스크립트 영역에서 order() 실행-->
                 <a th:href="'javascript:orderCancel('+${orderId}+')'"
                    class="btn btn-dark" a>주문 취소하기</a>
             </div>

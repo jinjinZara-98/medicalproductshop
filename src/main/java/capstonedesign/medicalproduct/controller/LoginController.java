@@ -17,7 +17,7 @@ import javax.validation.Valid;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-public class LoginContorller {
+public class LoginController {
 
     private final MemberService memberService;
 
@@ -32,8 +32,7 @@ public class LoginContorller {
     @PostMapping("login")
     public String login(@Valid @ModelAttribute LoginForm form, BindingResult bindingResult,
                         //비회원이 페이지에 접근할때 회원인지 체크하고, 로그인 성공해 회원이면 리다이렉트해서 접근했던 페이지로 다시 넘어가게
-                        //defaultValue는 다시 되돌아갈 redirectURL앞에 붙쳐줌, 기본값
-                        // /뒤에 url이 없다면 /로 갈꺼고 그냥 /면 홈 화면이겠쥬? 있다면 /redirectURL로
+                        //defaultValue는 다시 되돌아갈 redirectURL앞에 붙여줌, 기본값
                         @RequestParam(defaultValue = "/") String redirectURL, HttpServletRequest request) {
 
         //로그인 입력 폼에 비어있다면 다시 로그인 입력 폼으로 리다이렉트

@@ -84,7 +84,7 @@
 
           <div class="col-sm-6">
             <label class="form-label">전화번호</label>
-<!--            숫자값이 들어가있는 input태그 class에 form-control 붙이면 값을 숫자로 못꺼낸다?-->
+
             <input id="phoneNumber" type="text" class="form-control" th:field=*{orderDto.phoneNumber} th:errorclass="field-error">
 
             <div class= "field-error" th:errors="*{orderDto.phoneNumber}" />

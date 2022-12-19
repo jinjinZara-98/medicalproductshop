@@ -81,7 +81,7 @@ public class MemberAPIController {
     }
 
     /** 특정 회원 조회 */
-    @GetMapping("/api/member/{memberId}")
+    @GetMapping("/api/members/{memberId}")
     public MemberDto findMember(@PathVariable("memberId") long memberId) {
 
         Member member = memberRepository.findById(memberId).orElse(null);

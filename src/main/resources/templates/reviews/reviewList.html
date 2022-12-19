@@ -35,7 +35,6 @@
             </thead>
 
             <tbody>
-<!--                <tr th:each="review : ${completedReviewList}">-->
 
                 <tr th:each="review : ${reviewList}">
                     <input type="hidden" class="individual_itemId" th:value="${review.reviewId}">
@@ -46,18 +45,16 @@
                     </td>
 
                     <td>
-<!--                    <td th:text="${#temporals.format(item.orderDate,'yyyy-MM-dd HH:mm:ss')}">주문 일자</td>-->
-<!--                        <div><h5 th:text="${review.reviewDate}"></h5></div>-->
+
                         <div><h5 th:text="${{review.reviewDate}}"></h5></div>
                         <div><h5 th:text="${review.title}"></h5></div>
                         <div><h5 th:text="${review.content}"></h5></div>
                     </td>
-<!--                    th:href="@{/item/{itemId} (itemId=${item.id})}"-->
+
                     <td>
-<!--                        <img th:src="|/images/{imageFile} (imageFile = ${review.storeFileName})|"  width="75" height="75"/>-->
+
                         <a th:href="|/attach/${review.reviewId}|">
-<!--                            <img th:if="${review.storeFileName}" th:src="|/images/${review.storeFileName}|"-->
-<!--                                 width="75" height="75"/>-->
+
                             <img th:if="${review.storeFileName}" th:src = "*{review.storeFileName}" width="75" height="75"/>
                         </a>
                     </td>

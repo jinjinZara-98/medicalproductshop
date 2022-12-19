@@ -25,7 +25,7 @@ public class CartApiController {
     private final CartRepository cartRepository;
 
     /** 장바구니에 상품 추가 */
-    @PostMapping("/api/carts/{quantity}/item/{itemId}")
+    @PostMapping("/api/carts/{quantity}/items/{itemId}")
     public CartAPIDto putItemToCart(@PathVariable("quantity") int quantity, @PathVariable("itemId") long itemId ,
                                     HttpServletRequest request) {
 

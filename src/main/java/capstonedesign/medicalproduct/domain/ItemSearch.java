@@ -3,7 +3,7 @@ package capstonedesign.medicalproduct.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-//장바구니에서 홈화면에서 상품 찾을 때 쓰는
+//홈화면에서 상품 찾을 때 사용
 @Getter @Setter
 public class ItemSearch {
 
