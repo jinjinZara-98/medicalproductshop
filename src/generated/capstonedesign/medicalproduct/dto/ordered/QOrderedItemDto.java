@@ -1,6 +1,6 @@
 package capstonedesign.medicalproduct.dto.ordered;
 
-import com.querydsl.core.types.dsl.*;
+import capstonedesign.medicalproduct.dto.mvc.ordered.OrderedItemDto;
 
 import com.querydsl.core.types.ConstructorExpression;
 import javax.annotation.processing.Generated;

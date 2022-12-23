@@ -1,9 +1,8 @@
 package capstonedesign.medicalproduct.repository;
 
-import capstonedesign.medicalproduct.domain.entity.Item;
 import capstonedesign.medicalproduct.domain.ItemSearch;
 import capstonedesign.medicalproduct.domain.entity.QItem;
-import capstonedesign.medicalproduct.dto.ItemDto;
+import capstonedesign.medicalproduct.dto.mvc.ItemDto;
 import capstonedesign.medicalproduct.dto.QItemDto;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.QueryResults;
@@ -24,7 +23,7 @@ public class ItemQueryRepository {
 
     private final JPAQueryFactory queryFactory;
 
-    public Page<ItemDto> nameSearch(ItemSearch itemSearch, Pageable pageable) {
+    public Page<ItemDto> findAllByName(ItemSearch itemSearch, Pageable pageable) {
 
         QItem i = QItem.item;
 
@@ -52,7 +51,7 @@ public class ItemQueryRepository {
     }
 
     //카테고리 이름과 일치하는 상품을 갖고오는
-    public Page<ItemDto> categorySearch(String category, Pageable pageable) {
+    public Page<ItemDto> findAllByCategory(String category, Pageable pageable) {
 
         QItem i = QItem.item;
 

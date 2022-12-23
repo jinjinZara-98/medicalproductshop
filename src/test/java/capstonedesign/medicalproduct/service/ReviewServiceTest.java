@@ -3,8 +3,8 @@ package capstonedesign.medicalproduct.service;
 import capstonedesign.medicalproduct.domain.Uploadfile;
 import capstonedesign.medicalproduct.domain.entity.Member;
 import capstonedesign.medicalproduct.domain.entity.Review;
-import capstonedesign.medicalproduct.dto.MemberRegisterForm;
-import capstonedesign.medicalproduct.dto.order.OrderItemDto;
+import capstonedesign.medicalproduct.dto.mvc.MemberRegisterForm;
+import capstonedesign.medicalproduct.dto.mvc.order.OrderItemDto;
 import capstonedesign.medicalproduct.repository.ReviewRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -60,7 +60,7 @@ class ReviewServiceTest {
         member.setDoctorLicenseNumber(null);
 
         //회원가입된 회원 엔티티 반환
-        joinedMember = memberService.join(member);
+        joinedMember = memberService.save(member);
 
         List<OrderItemDto> orderItemDtos = new ArrayList<>();
 
@@ -84,7 +84,7 @@ class ReviewServiceTest {
         orderItemDto2.setTotalPrice(180000);
         orderItemDtos.add(orderItemDto2);
 
-        orderId = orderService.order(joinedMember.getId(), joinedMember.getName(), joinedMember.getPhoneNumber(),
+        orderId = orderService.save(joinedMember.getId(), joinedMember.getName(), joinedMember.getPhoneNumber(),
                 joinedMember.getAddress(), joinedMember.getAddressDetail(), "부재 시 경비실에 맡겨주세요.",
                 joinedMember.getAccountHost(), joinedMember.getBankName(), joinedMember.getAccountNumber(), orderItemDtos);
     }
@@ -93,7 +93,7 @@ class ReviewServiceTest {
     @DisplayName("후기 생성 확인")
     public void createReview() throws Exception {
         Uploadfile uploadfile = new Uploadfile("images.jpg", "43235092-1c6a-41d3-a3c8-175fcc1acb33.jpg");
-        Review review = reviewService.reviewRegister(joinedMember.getId(), 1, "상품 좋아요", "잘 받았습니다", uploadfile);
+        Review review = reviewService.save(joinedMember.getId(), 1, "상품 좋아요", "잘 받았습니다", uploadfile);
 
         assertThat("상품 좋아요").isEqualTo(review.getTitle());
         assertThat("잘 받았습니다").isEqualTo(review.getContent());
@@ -103,8 +103,8 @@ class ReviewServiceTest {
     @DisplayName("후기 삭제 확인")
     public void deleteReview() throws Exception {
         Uploadfile uploadfile = new Uploadfile("images.jpg", "43235092-1c6a-41d3-a3c8-175fcc1acb33.jpg");
-        Review review = reviewService.reviewRegister(joinedMember.getId(), 1, "상품 좋아요", "잘 받았습니다", uploadfile);
-        reviewService.reviewCancel(review.getId());
+        Review review = reviewService.save(joinedMember.getId(), 1, "상품 좋아요", "잘 받았습니다", uploadfile);
+        reviewService.delete(review.getId());
 
         List<Review> reviews = reviewRepository.findAll();
         assertThat(0).isEqualTo(reviews.size());

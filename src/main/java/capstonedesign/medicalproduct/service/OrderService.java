@@ -5,8 +5,8 @@ import capstonedesign.medicalproduct.domain.entity.Item;
 import capstonedesign.medicalproduct.domain.entity.Member;
 import capstonedesign.medicalproduct.domain.entity.Order;
 import capstonedesign.medicalproduct.domain.entity.OrderItem;
-import capstonedesign.medicalproduct.dto.order.OrderItemDto;
-import capstonedesign.medicalproduct.dto.ordered.OrderedItemDto;
+import capstonedesign.medicalproduct.dto.mvc.order.OrderItemDto;
+import capstonedesign.medicalproduct.dto.mvc.ordered.OrderedItemDto;
 import capstonedesign.medicalproduct.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -28,7 +28,7 @@ public class OrderService {
 
     /** 주문 */
     @Transactional
-    public Long order(Long memberId, String recipientName, String recipientPhoneNumber,
+    public Long save(Long memberId, String recipientName, String recipientPhoneNumber,
                       String recipientAddress, String recipientAddressDetail, String deliveryMessage, String accountHost,
                       String bankName, String accountNumber, List<OrderItemDto> orders) {
 
@@ -69,29 +69,31 @@ public class OrderService {
     }
 
     //로그인한 회원의 주문 상품 리스트를 갖고오는
-    public List<OrderedItemDto> orderItems(long memberId, OrderSearch orderSearch) {
-        return orderQueryRepository.orderedItems(memberId, orderSearch);
+    public List<OrderedItemDto> findAllOrderItemByMemberIdAndOrderInfo(long memberId, OrderSearch orderSearch) {
+        return orderQueryRepository.findAllOrderItemByMemberIdAndOrderInfo(memberId, orderSearch);
     }
 
     //주문 상품 리스트에서 상품 하나를 주문 취소하기 버튼 눌러 해당 상품과 같이 주문된 상품들 갖고오는
-    public List<OrderedItemDto> orderNumberOrderItems(long orderId) {
-        return orderQueryRepository.orderNumberOrderItems(orderId);
+    public List<OrderedItemDto> findAllOrderItemById(long orderId) {
+        return orderQueryRepository.findAllOrderItemById(orderId);
     }
 
     /** 주문 취소 */
     @Transactional
-    public void cancelOrder(Long orderId) {
+    public void cancel(Long orderId) {
 
         //주문 엔티티 조회
-        Order order = orderRepository.findById(orderId).get();
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 주문은 없습니다. id = " + orderId));
 
         //주문취소
         order.cancel();
     }
 
     //주문 아이디에 맞는 주문 상품 수령자 정보 가져오기
-    public Order recipientInfo(long orderId) {
+    public Order findById(long orderId) {
 
-        return orderRepository.findById(orderId).get();
+        return orderRepository.findById(orderId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 주문은 없습니다. id = " + orderId));
     }
 }

@@ -1,6 +1,6 @@
 package capstonedesign.medicalproduct.restAPIController;
 
-import capstonedesign.medicalproduct.restApiController.APIDto.MemberDto;
+import capstonedesign.medicalproduct.dto.api.MemberAPIDto;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
@@ -26,6 +26,6 @@ public class MemberAPIControllerTest {
     public void findMember() throws Exception{
 
         String url = "http://localhost:" + port + "/api/member/1";
-        MemberDto memberDto = restTemplate.getForObject(url, MemberDto.class);
+        MemberAPIDto memberDto = restTemplate.getForObject(url, MemberAPIDto.class);
     }
 }

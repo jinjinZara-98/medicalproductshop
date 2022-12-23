@@ -4,16 +4,13 @@ import capstonedesign.medicalproduct.domain.CartSearch;
 import capstonedesign.medicalproduct.domain.entity.QCart;
 import capstonedesign.medicalproduct.domain.entity.QItem;
 import capstonedesign.medicalproduct.domain.entity.QMember;
-import capstonedesign.medicalproduct.dto.CartDto;
+import capstonedesign.medicalproduct.dto.mvc.CartDto;
 import capstonedesign.medicalproduct.dto.QCartDto;
 import com.querydsl.core.BooleanBuilder;
-import com.querydsl.core.QueryResults;
-import com.querydsl.core.Tuple;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.springframework.util.StringUtils.hasText;

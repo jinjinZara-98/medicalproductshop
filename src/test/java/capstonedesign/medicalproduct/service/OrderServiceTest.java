@@ -4,9 +4,9 @@ import capstonedesign.medicalproduct.domain.OrderSearch;
 import capstonedesign.medicalproduct.domain.OrderStatus;
 import capstonedesign.medicalproduct.domain.entity.Member;
 import capstonedesign.medicalproduct.domain.entity.Order;
-import capstonedesign.medicalproduct.dto.MemberRegisterForm;
-import capstonedesign.medicalproduct.dto.order.OrderItemDto;
-import capstonedesign.medicalproduct.dto.ordered.OrderedItemDto;
+import capstonedesign.medicalproduct.dto.mvc.MemberRegisterForm;
+import capstonedesign.medicalproduct.dto.mvc.order.OrderItemDto;
+import capstonedesign.medicalproduct.dto.mvc.ordered.OrderedItemDto;
 import capstonedesign.medicalproduct.repository.OrderRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -57,7 +57,7 @@ class OrderServiceTest {
         member.setDoctorLicenseNumber(null);
 
         //회원가입된 회원 엔티티 반환
-        joinedMember = memberService.join(member);
+        joinedMember = memberService.save(member);
 
         List<OrderItemDto> orderItemDtos = new ArrayList<>();
 
@@ -81,7 +81,7 @@ class OrderServiceTest {
         orderItemDto2.setTotalPrice(180000);
         orderItemDtos.add(orderItemDto2);
 
-        orderId = orderService.order(joinedMember.getId(), joinedMember.getName(), joinedMember.getPhoneNumber(),
+        orderId = orderService.save(joinedMember.getId(), joinedMember.getName(), joinedMember.getPhoneNumber(),
                 joinedMember.getAddress(), joinedMember.getAddressDetail(), "부재 시 경비실에 맡겨주세요.",
                 joinedMember.getAccountHost(), joinedMember.getBankName(), joinedMember.getAccountNumber(), orderItemDtos);
     }
@@ -95,19 +95,19 @@ class OrderServiceTest {
         assertThat("홍길동").isEqualTo(order.getMember().getName());
 
         //주문 번호에 속하는 주문 상품들의 개수 확인
-        List<OrderedItemDto> orderedItemDtos = orderService.orderNumberOrderItems(orderId);
+        List<OrderedItemDto> orderedItemDtos = orderService.findAllOrderItemById(orderId);
         assertThat(2).isEqualTo(orderedItemDtos.size());
     }
 
     @Test
     @DisplayName("주문 취소 확인")
     public void createOrdr() throws Exception {
-        orderService.cancelOrder(orderId);
+        orderService.cancel(orderId);
 
         //검색 조건에 주문 상태를 취소로 해서 주문 상품 검색
         OrderSearch orderSearch = new OrderSearch();
         orderSearch.setOrderStatus(OrderStatus.CANCEL);
-        List<OrderedItemDto> orderedItemDtos = orderService.orderItems(joinedMember.getId(), orderSearch);
+        List<OrderedItemDto> orderedItemDtos = orderService.findAllOrderItemByMemberIdAndOrderInfo(joinedMember.getId(), orderSearch);
 
         assertThat(2).isEqualTo(orderedItemDtos.size());
     }

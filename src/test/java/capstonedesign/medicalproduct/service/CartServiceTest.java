@@ -2,7 +2,7 @@ package capstonedesign.medicalproduct.service;
 
 import capstonedesign.medicalproduct.domain.entity.Cart;
 import capstonedesign.medicalproduct.domain.entity.Member;
-import capstonedesign.medicalproduct.dto.MemberRegisterForm;
+import capstonedesign.medicalproduct.dto.mvc.MemberRegisterForm;
 import capstonedesign.medicalproduct.repository.CartRepository;
 import capstonedesign.medicalproduct.repository.MemberRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -57,7 +57,7 @@ class CartServiceTest {
         member.setDoctorLicenseNumber(null);
 
         //회원가입된 회원 엔티티 반환
-        joinedMember = memberService.join(member);
+        joinedMember = memberService.save(member);
     }
 
     @Test
@@ -65,7 +65,7 @@ class CartServiceTest {
     public void cartItem() throws Exception {
 
         //장바구니에 상품 넣기
-        long cartId = cartService.itemPut(joinedMember.getId(), 1, 1);
+        long cartId = cartService.save(joinedMember.getId(), 1, 1);
         Cart cart = cartRepository.getById(cartId);
 
         //장바구니에 상품을 담은 회원 이름
@@ -83,9 +83,9 @@ class CartServiceTest {
     public void cartItems() throws Exception {
 
         //장바구니에 상품 넣기
-        cartService.itemPut(joinedMember.getId(), 1, 1);
-        cartService.itemPut(joinedMember.getId(), 2, 1);
-        cartService.itemPut(joinedMember.getId(), 3, 1);
+        cartService.save(joinedMember.getId(), 1, 1);
+        cartService.save(joinedMember.getId(), 2, 1);
+        cartService.save(joinedMember.getId(), 3, 1);
 
         List<Cart> carts = cartRepository.findAll();
 
@@ -97,7 +97,7 @@ class CartServiceTest {
     public void cartItemQuantityRegulate() throws Exception {
 
         //장바구니에 상품 넣기
-        long cartId = cartService.itemPut(joinedMember.getId(), 1, 1);
+        long cartId = cartService.save(joinedMember.getId(), 1, 1);
         cartService.quantityPlus(cartId);
         Cart cart = cartRepository.getById(cartId);
 
@@ -109,7 +109,7 @@ class CartServiceTest {
     public void cartItemQuantityMinus() throws Exception {
 
         //장바구니에 상품 넣기
-        long cartId = cartService.itemPut(joinedMember.getId(), 1, 2);
+        long cartId = cartService.save(joinedMember.getId(), 1, 2);
         cartService.quantityMinus(cartId);
         Cart cart = cartRepository.getById(cartId);
 
@@ -121,8 +121,8 @@ class CartServiceTest {
     public void cartItemDelete() throws Exception {
 
         //장바구니에 상품 넣기
-        long cartId = cartService.itemPut(joinedMember.getId(), 1, 1);
-        cartService.cartItemDelete(cartId);
+        long cartId = cartService.save(joinedMember.getId(), 1, 1);
+        cartService.delete(cartId);
 
         List<Cart> carts = cartRepository.findAll();
 

@@ -1,6 +1,6 @@
 package capstonedesign.medicalproduct.dto;
 
-import com.querydsl.core.types.dsl.*;
+import capstonedesign.medicalproduct.dto.mvc.ReviewRegisterForm;
 
 import com.querydsl.core.types.ConstructorExpression;
 import javax.annotation.processing.Generated;

@@ -2,18 +2,12 @@ package capstonedesign.medicalproduct.repository;
 
 import capstonedesign.medicalproduct.domain.*;
 import capstonedesign.medicalproduct.domain.entity.*;
-import capstonedesign.medicalproduct.dto.ordered.OrderedItemDto;
+import capstonedesign.medicalproduct.dto.mvc.ordered.OrderedItemDto;
 import capstonedesign.medicalproduct.dto.ordered.QOrderedItemDto;
 import com.querydsl.core.BooleanBuilder;
-import com.querydsl.core.QueryResults;
-import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -26,7 +20,7 @@ public class OrderQueryRepository {
 
     private final JPAQueryFactory jpaQueryFactory;
 
-    public List<OrderedItemDto> orderedItems(long memberId, OrderSearch orderSearch) {
+    public List<OrderedItemDto> findAllOrderItemByMemberIdAndOrderInfo(long memberId, OrderSearch orderSearch) {
 
         QMember m = new QMember("m");
         QItem i = new QItem("i");
@@ -66,7 +60,7 @@ public class OrderQueryRepository {
 
     //주문 상품 리스트에서 상품 하나를 주문취소하기 버튼을 누르면
     //해당 상품의 주문 아이디를 파라미터로 받아 그 상품과 같이 주문된 상품들 갖고옴
-    public List<OrderedItemDto> orderNumberOrderItems(long orderId) {
+    public List<OrderedItemDto> findAllOrderItemById(long orderId) {
 
         QMember member = QMember.member;
         QItem item = QItem.item;

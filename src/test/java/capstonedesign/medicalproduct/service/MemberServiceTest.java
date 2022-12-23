@@ -1,7 +1,7 @@
 package capstonedesign.medicalproduct.service;
 
 import capstonedesign.medicalproduct.domain.entity.Member;
-import capstonedesign.medicalproduct.dto.MemberRegisterForm;
+import capstonedesign.medicalproduct.dto.mvc.MemberRegisterForm;
 import capstonedesign.medicalproduct.repository.MemberRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -50,7 +50,7 @@ class MemberServiceTest {
         member.setDoctorLicenseNumber(null);
 
         //회원가입된 회원 엔티티 반환
-        joinedMember = memberService.join(member);
+        joinedMember = memberService.save(member);
     }
 
     @Test
@@ -64,7 +64,7 @@ class MemberServiceTest {
     @DisplayName("로그인 확인")
     public void login() throws Exception{
 
-        Member member = memberService.login("gildong123", "gildong");
+        Member member = memberService.findByLoginIdAndPassword("gildong123", "gildong");
         assertThat(member).isNotSameAs(null);
     }
 
@@ -72,9 +72,9 @@ class MemberServiceTest {
     @DisplayName("변경된 회원 비밀번호 확인")
     public void memberPasswordUpdate() throws Exception{
 
-        Member member = memberRepository.findByLoginId("gildong123");
+        Member member = memberService.findByLoginId("gildong123");
         memberService.updatePassword(member.getId(), "gildong1");
-        Member updatedMember = memberRepository.findByLoginId("gildong123");
+        Member updatedMember = memberService.findByLoginId("gildong123");
 
         assertThat(updatedMember.getPassword()).isEqualTo("gildong1");
     }
@@ -83,9 +83,9 @@ class MemberServiceTest {
     @DisplayName("변경된 회원 이름 확인")
     public void memberNameUpdate() throws Exception{
 
-        Member member = memberRepository.findByLoginId("gildong123");
+        Member member = memberService.findByLoginId("gildong123");
         memberService.updateName(member.getId(), "임꺽정");
-        Member updatedMember = memberRepository.findByLoginId("gildong123");
+        Member updatedMember = memberService.findByLoginId("gildong123");
 
         assertThat(updatedMember.getName()).isEqualTo("임꺽정");
     }
@@ -94,9 +94,9 @@ class MemberServiceTest {
     @DisplayName("변경된 회원 전화번호 확인")
     public void memberPhoneNumberUpdate() throws Exception{
 
-        Member member = memberRepository.findByLoginId("gildong123");
+        Member member = memberService.findByLoginId("gildong123");
         memberService.updatePhoneNumber(member.getId(), "01011112222");
-        Member updatedMember = memberRepository.findByLoginId("gildong123");
+        Member updatedMember = memberService.findByLoginId("gildong123");
 
         assertThat(updatedMember.getPhoneNumber()).isEqualTo("01011112222");
     }
@@ -105,9 +105,9 @@ class MemberServiceTest {
     @DisplayName("변경된 회원 주소 확인")
     public void memberAddressUpdate() throws Exception{
 
-        Member member = memberRepository.findByLoginId("gildong123");
+        Member member = memberService.findByLoginId("gildong123");
         memberService.updateAddress(member.getId(), "대원생활관");
-        Member updatedMember = memberRepository.findByLoginId("gildong123");
+        Member updatedMember = memberService.findByLoginId("gildong123");
 
         assertThat(updatedMember.getAddress() + " " + updatedMember.getAddressDetail())
                 .isEqualTo("충북 충주시 대소원면 대학로 50 대원생활관");
@@ -117,9 +117,9 @@ class MemberServiceTest {
     @DisplayName("변경된 회원 이메일 확인")
     public void memberEmailUpdate() throws Exception{
 
-        Member member = memberRepository.findByLoginId("gildong123");
+        Member member = memberService.findByLoginId("gildong123");
         memberService.updateEmail(member.getId(), "gildong456");
-        Member updatedMember = memberRepository.findByLoginId("gildong123");
+        Member updatedMember = memberService.findByLoginId("gildong123");
 
         assertThat(updatedMember.getEmail()).isEqualTo("gildong456");
     }
@@ -128,9 +128,9 @@ class MemberServiceTest {
     @DisplayName("변경된 회원 예금주 확인")
     public void memberAccountHostUpdate() throws Exception{
 
-        Member member = memberRepository.findByLoginId("gildong123");
+        Member member = memberService.findByLoginId("gildong123");
         memberService.updateAccountHost(member.getId(), "임꺽정");
-        Member updatedMember = memberRepository.findByLoginId("gildong123");
+        Member updatedMember = memberService.findByLoginId("gildong123");
 
         assertThat(updatedMember.getAccountHost()).isEqualTo("임꺽정");
     }
@@ -139,9 +139,9 @@ class MemberServiceTest {
     @DisplayName("변경된 회원 은행명 확인")
     public void memberBankNameUpdate() throws Exception{
 
-        Member member = memberRepository.findByLoginId("gildong123");
+        Member member = memberService.findByLoginId("gildong123");
         memberService.updateBankName(member.getId(), "국민은행");
-        Member updatedMember = memberRepository.findByLoginId("gildong123");
+        Member updatedMember = memberService.findByLoginId("gildong123");
 
         assertThat(updatedMember.getBankName()).isEqualTo("국민은행");
     }
@@ -150,9 +150,9 @@ class MemberServiceTest {
     @DisplayName("변경된 회원 계좌번호 확인")
     public void memberAccountNumberUpdate() throws Exception{
 
-        Member member = memberRepository.findByLoginId("gildong123");
+        Member member = memberService.findByLoginId("gildong123");
         memberService.updateAccountNumber(member.getId(), "60694396301015");
-        Member updatedMember = memberRepository.findByLoginId("gildong123");
+        Member updatedMember = memberService.findByLoginId("gildong123");
 
         assertThat(updatedMember.getAccountNumber()).isEqualTo("60694396301015");
     }

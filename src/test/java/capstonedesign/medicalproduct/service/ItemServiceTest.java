@@ -2,7 +2,7 @@ package capstonedesign.medicalproduct.service;
 
 import capstonedesign.medicalproduct.domain.ItemSearch;
 import capstonedesign.medicalproduct.domain.entity.Item;
-import capstonedesign.medicalproduct.dto.ItemDto;
+import capstonedesign.medicalproduct.dto.mvc.ItemDto;
 import capstonedesign.medicalproduct.repository.ItemQueryRepository;
 import capstonedesign.medicalproduct.repository.ItemRepository;
 import org.junit.jupiter.api.DisplayName;
@@ -52,7 +52,7 @@ class ItemServiceTest {
 
         //검색할 때 0 페이지로?
         Page<ItemDto> items =
-                itemQueryRepository.nameSearch(itemSearch, PageRequest.of(0,8, Sort.Direction.ASC, "id"));
+                itemQueryRepository.findAllByName(itemSearch, PageRequest.of(0,8, Sort.Direction.ASC, "id"));
 
         //가위 검색했을 때 총 1개의 페이지, 총 2개의 상품
         assertThat(items.getTotalPages()).isEqualTo(1);
@@ -64,7 +64,7 @@ class ItemServiceTest {
     public void categoryItems() throws Exception {
 
         Page<ItemDto> items =
-                itemQueryRepository.categorySearch("의료기기", PageRequest.of(0,8, Sort.Direction.ASC, "id"));
+                itemQueryRepository.findAllByCategory("의료기기", PageRequest.of(0,8, Sort.Direction.ASC, "id"));
 
         assertThat(items.getTotalPages()).isEqualTo(2);
         assertThat(items.getContent().size()).isEqualTo(8);

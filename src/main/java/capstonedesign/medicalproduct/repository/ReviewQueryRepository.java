@@ -4,9 +4,7 @@ import capstonedesign.medicalproduct.domain.entity.QItem;
 import capstonedesign.medicalproduct.domain.entity.QMember;
 import capstonedesign.medicalproduct.domain.entity.QReview;
 import capstonedesign.medicalproduct.dto.QReviewDto;
-import capstonedesign.medicalproduct.dto.QReviewRegisterForm;
-import capstonedesign.medicalproduct.dto.ReviewDto;
-import capstonedesign.medicalproduct.dto.ReviewRegisterForm;
+import capstonedesign.medicalproduct.dto.mvc.ReviewDto;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -19,7 +17,7 @@ public class ReviewQueryRepository {
 
     private final JPAQueryFactory jpaQueryFactory;
 
-    public List<ReviewDto> reviewList(long memberId) {
+    public List<ReviewDto> findAllByMemberId(long memberId) {
 
         QMember member = QMember.member;
         QItem item = QItem.item;
@@ -38,7 +36,7 @@ public class ReviewQueryRepository {
     }
 
     //상품 상세 화면으로 갈 때 해당 상품의 리뷰들 갖고오는
-    public List<ReviewDto> oneItemReviews(long itemId) {
+    public List<ReviewDto> findAllByItemId(long itemId) {
 
         QMember member = QMember.member;
         QItem item = QItem.item;
