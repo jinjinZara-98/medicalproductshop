@@ -20,9 +20,9 @@
 ### 1. 프로젝트 소개
 
 의약품/ 의료기기를 판매하는 쇼핑몰 웹 어플리케이션입니다.
-기존에 있는 의약품/ 의료기기 쇼핑몰 웹사이트에서는 의사나 의료사업자가 아닌 일반인은 
-판매하는 상품들을 구매뿐만 아니라 볼 수 조차 없었습니다. 현재 프로젝트가 실제로 존재하는 쇼핑몰은 아니지만 그런 부분을 개선하여 일반인 회원도 어떤 상품이 존재하는지 그 상품들은 
-무슨 용도로 사용되는지 확인 할 수 있게 하고 일부 상품인 밴드나 파스, 건강 식품 정도는 구매가 가능하도록 개발하고 싶었습니다.
+책과 강의를 통해 학습한 기술들을 사용해서 프로젝트를 직접 만들어보고 싶은 마음에 시작하게 되었습니다.
+
+2. 프로젝트 기능
 
 ### 2. 프로젝트 기능
 
@@ -299,30 +299,41 @@
  ┣ 📂main
  ┃ ┣ 📂java
  ┃ ┃ ┗ 📂capstonedesign
- ┃ ┃ ┃ ┗ 📂coco
- ┃ ┃ ┃ ┃ ┗ 📂medicalproduct
- ┃ ┃ ┃ ┃ ┃ ┣ 📂controller
+ ┃ ┃ ┃ ┗ 📂medicalproduct
+ ┃ ┃ ┃ ┃ ┣ 📂controller
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂 mvc
  ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CartController.java
  ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜HomeController.java
  ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ItemController.java
  ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜LoginController.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜MemberController.java
  ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜OrderController.java
  ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ReviewController.java
- ┃ ┃ ┃ ┃ ┃ ┣ 📂domain
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂entity
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Cart.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Item.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Member.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Order.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜OrderItem.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜Review.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CartSearch.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CartStatus.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ItemSearch.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜OrderSearch.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜OrderStatus.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜Uploadfile.java
- ┃ ┃ ┃ ┃ ┃ ┣ 📂dto
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂restapi
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CartApiController.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ItemAPIController.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜MemberAPIController.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜OrderApiController.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ReviewAPIController.java
+ ┃ ┃ ┃ ┃ ┣ 📂domain
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂entity
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Cart.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Item.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Member.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Order.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜OrderItem.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜Review.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CartSearch.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CartStatus.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ItemSearch.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜OrderSearch.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜OrderStatus.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜Uploadfile.java
+ ┃ ┃ ┃ ┃ ┣ 📂dto
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂api
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CartAPIDto.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜MemberAPIDto.java
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂mvc
  ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂order
  ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜OrderDto.java
  ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜OrderItemDto.java
@@ -344,54 +355,46 @@
  ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜OrderStatus.java
  ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ReviewDto.java
  ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ReviewRegisterForm.java
- ┃ ┃ ┃ ┃ ┃ ┣ 📂exception
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DuplicateIdExceptiony.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜InvalidRegisteredValueException.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜InvalidUpdatedValueException.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜NotExistMemberException.java
- ┃ ┃ ┃ ┃ ┃ ┣ 📂exhandler
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂advice
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ExControllerAdvice.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ErrorResult.java
- ┃ ┃ ┃ ┃ ┃ ┗ 📂login
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂argumentresolver
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Login.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜LoginMemberArgumentResolver.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂interceptor
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜LoginCheckInterceptor.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜LogInterceptor.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜 SessionConst.java
- ┃ ┃ ┃ ┃ ┃ ┗ 📂repository
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 CartQueryRepository.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 CartRepository.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 ItemQueryRepository.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 ItemRepository.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 MemberRepository.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 OrderItemRepository.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 CartQueryRepository.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 OrderQueryRepository.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 OrderRepository.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 ReviewQueryRepository.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜 ReviewRepository.java
- ┃ ┃ ┃ ┃ ┃ ┗ 📂restAPIController
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂APIDto
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 MemberDto.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 CartApiController.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 ItemAPIController.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 MemberAPIController.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 OrderApiController.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜 ReviewAPIController.java
- ┃ ┃ ┃ ┃ ┃ ┗ 📂service
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 AwsS3Service.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 CartService.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 EmailService.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 ItemService.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 MemberService.java  
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜 OrderService.java  
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜 ReviewService.java  
- ┃ ┃ ┃ ┃ ┃ ┣ AwsS3Config
- ┃ ┃ ┃ ┃ ┃ ┣ MedicalproductApplication
- ┃ ┃ ┃ ┃ ┃ ┗ WebConfig
+ ┃ ┃ ┃ ┃ ┣ 📂exception
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜DuplicateIdExceptiony.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜InvalidRegisteredValueException.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜InvalidUpdatedValueException.java
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜NotExistMemberException.java
+ ┃ ┃ ┃ ┃ ┣ 📂exhandler
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂advice
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ExControllerAdvice.java
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜ErrorResult.java
+ ┃ ┃ ┃ ┃ ┗ 📂login
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂argumentresolver
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Login.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜LoginMemberArgumentResolver.java
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂interceptor
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜LoginCheckInterceptor.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜LogInterceptor.java
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜 SessionConst.java
+ ┃ ┃ ┃ ┃ ┗ 📂repository
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜CartQueryRepository.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜CartRepository.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜ItemQueryRepository.java
+ ┃ ┃ ┃ ┃ ┣ 📜ItemRepository.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜MemberRepository.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜OrderItemRepository.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜CartQueryRepository.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜OrderQueryRepository.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜OrderRepository.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜ReviewQueryRepository.java
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜ReviewRepository.java
+ ┃ ┃ ┃ ┃ ┗ 📂service
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜AwsS3Service.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜CartService.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜EmailService.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜ItemService.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜MemberService.java  
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜OrderService.java  
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜ReviewService.java  
+ ┃ ┃ ┃ ┃ ┣ 📜AwsS3Config
+ ┃ ┃ ┃ ┃ ┣ 📜MedicalproductApplication
+ ┃ ┃ ┃ ┃ ┗ 📜WebConfig
  ┃ ┗ 📂resources
  ┃ ┃ ┣ 📂static
  ┃ ┃ ┃ ┣ 📂css
